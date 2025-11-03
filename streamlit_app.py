@@ -4,7 +4,7 @@ import streamlit as st
 
 # --- Page setup ---
 st.set_page_config(page_title="London Race Chart", page_icon="🏁", layout="wide")
-st.title("🏁 Race Between Train, Walking, and Cycling")
+st.title("Race Between Train, Walking, and Cycling")
 st.caption("Compare how long it takes to travel between London stations via different modes of transport.")
 
 # --- Load data ---
@@ -31,7 +31,7 @@ destination = st.sidebar.selectbox("Destination", sorted(valid_dests))
 row = df[(df["origin"] == source) & (df["destination"] == destination)]
 
 if row.empty:
-    st.warning("⚠️ No data available for this route.")
+    st.warning("No data available for this route.")
     st.stop()
 
 row = row.iloc[0]
@@ -77,9 +77,9 @@ st.plotly_chart(fig, use_container_width=True)
 # --- Additional stats ---
 st.markdown("### Summary")
 col1, col2, col3 = st.columns(3)
-col1.metric("🚆 Train time (min)", round(row.total_time_in_train, 1))
-col2.metric("🚶 Walking time (min)", round(row.total_walking_time, 1))
-col3.metric("🚴 Cycling time (min)", round(row.total_cycling_time, 1))
+col1.metric("Train time (min)", round(row.total_time_in_train, 1))
+col2.metric("Walking time (min)", round(row.total_walking_time, 1))
+col3.metric("Cycling time (min)", round(row.total_cycling_time, 1))
 
 st.markdown("### Calories Burnt")
 col4, col5 = st.columns(2)
