@@ -61,7 +61,7 @@ fig = px.bar(
     color="Mode",
     animation_frame="Time (min)",
     range_x=[0, 100],
-    title=f"🏁 Race from {source} → {destination}",
+    title=f"From {source} → {destination}",
     orientation='h'
 )
 
